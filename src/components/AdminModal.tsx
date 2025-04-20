@@ -46,9 +46,9 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-      <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md animate-fadeIn">
-        <h2 className="text-lg font-bold mb-4">{initial ? "Edit Update" : "Add Update"}</h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm fade-in">
+      <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md animate-fadeIn border border-indigo-100">
+        <h2 className="text-lg font-bold mb-4 text-indigo-700">{initial ? "Edit Update" : "Add Update"}</h2>
         <form
           className="flex flex-col gap-3"
           onSubmit={e => {
@@ -57,7 +57,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
           }}
         >
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Version</span>
+            <span className="text-sm font-medium text-indigo-700">Version</span>
             <input
               className="input"
               required
@@ -67,7 +67,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Date</span>
+            <span className="text-sm font-medium text-indigo-700">Date</span>
             <input
               className="input"
               type="date"
@@ -77,7 +77,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Status</span>
+            <span className="text-sm font-medium text-indigo-700">Status</span>
             <select
               className="input"
               value={form.status}
@@ -89,7 +89,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
             </select>
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Title</span>
+            <span className="text-sm font-medium text-indigo-700">Title</span>
             <input
               className="input"
               required
@@ -99,7 +99,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Description</span>
+            <span className="text-sm font-medium text-indigo-700">Description</span>
             <textarea
               className="input"
               required
@@ -110,7 +110,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
             />
           </label>
           <label className="flex flex-col gap-1">
-            <span className="text-sm font-medium">Categories</span>
+            <span className="text-sm font-medium text-indigo-700">Categories</span>
             <div className="flex flex-wrap gap-2">
               {categoryOptions.map(cat => (
                 <label key={cat} className="flex items-center gap-1 text-xs font-medium">
@@ -134,7 +134,7 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
           <div className="flex gap-2 mt-4">
             <button
               type="submit"
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition shadow"
             >
               {initial ? "Save" : "Add"}
             </button>
@@ -148,11 +148,6 @@ export function AdminModal({ open, onClose, onSave, initial }: AdminModalProps) 
           </div>
         </form>
       </div>
-      <style>{`
-        .animate-fadeIn { animation: fadeIn 0.2s; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
-        .input { @apply border border-gray-200 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-200 transition; }
-      `}</style>
     </div>
   );
 }

@@ -31,10 +31,10 @@ export function ChangelogTimeline({
     <div className="relative">
       {versions.map((version, idx) => (
         <div key={version}>
-          <div className="flex items-center gap-2 mt-8 mb-2">
-            <div className="h-0.5 flex-1 bg-gradient-to-r from-indigo-100 to-purple-100 rounded" />
-            <span className="text-sm font-mono text-indigo-600 bg-indigo-50 px-3 py-0.5 rounded-full shadow">{version}</span>
-            <div className="h-0.5 flex-1 bg-gradient-to-l from-indigo-100 to-purple-100 rounded" />
+          <div className="flex items-center gap-2 mt-12 mb-4">
+            <div className="flex-1 h-0.5 divider-gradient" />
+            <span className="text-sm font-mono text-indigo-600 bg-indigo-50 px-3 py-0.5 rounded-full shadow font-semibold tracking-wide">{version}</span>
+            <div className="flex-1 h-0.5 divider-gradient" />
           </div>
           <div>
             {grouped[version].map((update, i) => (
@@ -47,7 +47,9 @@ export function ChangelogTimeline({
                   isAdmin={isAdmin}
                 />
                 {i < grouped[version].length - 1 && (
-                  <div className="border-b border-dashed border-gray-200 mx-8" />
+                  <div className="mx-8 my-2">
+                    <div className="divider-gradient" />
+                  </div>
                 )}
               </React.Fragment>
             ))}
